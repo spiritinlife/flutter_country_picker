@@ -199,12 +199,12 @@ class _CountryPickerDialogState extends State<_CountryPickerDialog> {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: Dialog(
+    return Dialog(
+        elevation: 4,
         child: Column(
-          children: <Widget>[
-            new TextField(
-              decoration: new InputDecoration(
+          children: [
+            TextField(
+              decoration: InputDecoration(
                 hintText: MaterialLocalizations.of(context).searchFieldLabel,
                 prefixIcon: Icon(Icons.search),
                 suffixIcon: filter == null || filter == ""
@@ -222,52 +222,49 @@ class _CountryPickerDialogState extends State<_CountryPickerDialog> {
               controller: controller,
             ),
             Expanded(
-              child: Scrollbar(
-                child: ListView.builder(
-                  itemCount: countries.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    Country country = countries[index];
-                    if (filter == null ||
-                        filter == "" ||
-                        country.name
-                            .toLowerCase()
-                            .contains(filter.toLowerCase()) ||
-                        country.isoCode.contains(filter)) {
-                      return InkWell(
-                        child: ListTile(
-                          trailing: Text("+ ${country.dialingCode}"),
-                          title: Row(
-                            children: <Widget>[
-                              Image.asset(
-                                country.asset,
-                                package: "flutter_country_picker",
-                              ),
-                              Expanded(
-                                child: Container(
-                                  margin: EdgeInsets.only(left: 8.0),
-                                  child: Text(
-                                    country.name,
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
+                child: Scrollbar(
+              child: ListView.builder(
+                itemCount: countries.length,
+                itemBuilder: (BuildContext context, int index) {
+                  Country country = countries[index];
+                  if (filter == null ||
+                      filter == "" ||
+                      country.name
+                          .toLowerCase()
+                          .contains(filter.toLowerCase()) ||
+                      country.isoCode.contains(filter)) {
+                    return InkWell(
+                      child: ListTile(
+                        trailing: Text("+ ${country.dialingCode}"),
+                        title: Row(
+                          children: <Widget>[
+                            Image.asset(
+                              country.asset,
+                              package: "flutter_country_picker",
+                            ),
+                            Expanded(
+                              child: Container(
+                                margin: EdgeInsets.only(left: 8.0),
+                                child: Text(
+                                  country.name,
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
                                 ),
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
-                        onTap: () {
-                          Navigator.pop(context, country);
-                        },
-                      );
-                    }
-                    return Container();
-                  },
-                ),
+                      ),
+                      onTap: () {
+                        Navigator.pop(context, country);
+                      },
+                    );
+                  }
+                  return Container();
+                },
               ),
-            ),
+            )),
           ],
-        ),
-      ),
-    );
+        ));
   }
 }
