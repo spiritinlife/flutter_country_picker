@@ -2,12 +2,13 @@
 
 # flutter_country_picker
 A Flutter Country Picker Widget with support to country dialing codes
+!!!FORK that removes swift dependency!!!
 
 <img src="https://github.com/biessek/flutter_country_picker/blob/master/example/img/1.png?raw=true" width="200"/>  
 <img src="https://github.com/biessek/flutter_country_picker/blob/master/example/img/2.png?raw=true" width="200"/>
 
 ## Usage
-
+!!!FORK that removes swift dependency!!!
 Add the CountryPicker widget in your layout and use the `onChanged` callback.  
 [Full example](https://github.com/biessek/flutter_country_picker/tree/master/example)
 
