@@ -71,29 +71,23 @@ class CountryPicker extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Container(
-              child: showFlag
-                  ? Image.asset(
-                      displayCountry.asset,
-                      package: "flutter_country_picker",
-                      height: 32.0,
-                      fit: BoxFit.fitWidth,
-                    )
-                  : Container()),
-          Container(
-              child: showDialingCode
-                  ? Text(
-                      " (+${displayCountry.dialingCode})",
-                      style: TextStyle(fontSize: 20.0),
-                    )
-                  : Container()),
-          Container(
-              child: showName
-                  ? Text(
-                      " ${displayCountry.name}",
-                      style: TextStyle(fontSize: 22.0),
-                    )
-                  : Container()),
+          if (showFlag)
+            Image.asset(
+              displayCountry.asset,
+              package: "flutter_country_picker",
+              height: 32.0,
+              fit: BoxFit.fitWidth,
+            ),
+          if (showDialingCode)
+            Text(
+              " (+${displayCountry.dialingCode})",
+              style: TextStyle(fontSize: 16.0),
+            ),
+          if (showName)
+            Text(
+              " ${displayCountry.name}",
+              style: TextStyle(fontSize: 18.0),
+            ),
           Icon(Icons.arrow_drop_down,
               color: Theme.of(context).brightness == Brightness.light
                   ? Colors.grey.shade700
