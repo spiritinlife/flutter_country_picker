@@ -24,8 +24,8 @@ Future<List<Country>> _fetchLocalizedCountryNames() async {
   for (var country in Country.ALL) {
     renamed.add(country.copyWith(name: result[country.isoCode]));
   }
-  renamed.sort(
-      (Country a, Country b) => removeDiacritics(a.name).compareTo(b.name));
+//   renamed.sort(
+//       (Country a, Country b) => removeDiacritics(a.name).compareTo(b.name));
 
   return renamed;
 }
