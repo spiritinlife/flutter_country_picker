@@ -1535,7 +1535,7 @@ class Country {
   );
 
   /// All the countries in the picker list
-  static const ALL = <Country>[
+  static final ALL = <Country>[
     AD,
     AE,
     AF,
